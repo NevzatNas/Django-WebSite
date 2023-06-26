@@ -1,0 +1,46 @@
+{% extends "homebase.html" %}
+{% load static %}
+
+{% block title %}{{ setting.title }}{% endblock %}
+
+{%block head %}
+<link rel="shortcut icon" type="image/icon" href="{{setting.icon.url}}"/> 
+{%endblock%}
+
+{% block body %}
+<br>
+<br>
+<!--blog start -->
+<section id="blog" class="blog">
+    <div class="container">
+        <div class="section-header">
+            <h2>latest blog</h2>
+        </div><!--/.section-header-->
+        <div class="blog-content">
+            <div class="row">
+                {% for ns in blogs %}
+                <div class="col-sm-4">
+                    <div class="single-blog">
+                        <div class="single-blog-img">
+                            <img src="{{ns.image.url}}" alt="blog image">
+                            <div class="single-blog-img-overlay"></div>
+                        </div>
+                        <div class="single-blog-txt">
+                            <h2><a href="/blog/{{ns.id}}">{{ns.title}}</a></h2>
+                            <h3>By <a href="/blog/{{ns.id}}">Robert Norby</a> / 18th March 2018</h3>
+                            <p>
+                                {{ns.description}}
+                            </p>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div><!--/.container-->
+    
+</section><!--/.blog-->
+<!--blog end -->
+
+
+{% endblock  %}

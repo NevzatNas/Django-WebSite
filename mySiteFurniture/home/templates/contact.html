@@ -1,0 +1,58 @@
+{% extends 'homebase.html' %}
+
+{% block title %} {{ setting.title }} {% endblock %}
+{% block description %} {{ setting.description }} {% endblock %}
+{% block keywords %} {{ setting.keywords }} {% endblock %}
+{%block head %}
+<link rel="shortcut icon" type="image/icon" href="{{setting.icon.url}}"/> 
+{%endblock%}
+
+{% block body %} 
+{% load static %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+			<!-- clients strat -->
+            <section id="clients"  class="clients">
+                <div class="container">
+                    <div class="owl-carousel owl-theme" id="client">
+                            <div class="item">
+                                <a href="#">
+                                    <img src="{% static 'images/clients/c1.png' %}" alt="brand-image" />
+                                </a>
+                            </div><!--/.item-->
+                            <div class="item">
+                                <a href="#">
+                                    <img src="{% static 'images/clients/c2.png' %}" alt="brand-image" />
+                                </a>
+                            </div><!--/.item-->
+                            <div class="item">
+                                <a href="#">
+                                    <img src="{% static 'images/clients/c3.png' %}" alt="brand-image" />
+                                </a>
+                            </div><!--/.item-->
+                            <div class="item">
+                                <a href="#">
+                                    <img src="{% static 'images/clients/c4.png' %}" alt="brand-image" />
+                                </a>
+                            </div><!--/.item-->
+                            <div class="item">
+                                <a href="#">
+                                    <img src="{% static 'images/clients/c5.png' %}" alt="brand-image" />
+                                </a>
+                            </div><!--/.item-->
+                        </div><!--/.owl-carousel-->
+    
+                </div><!--/.container-->
+    
+            </section><!--/.clients-->	
+            <!-- clients end -->
+
+		
+
+{% endblock %}

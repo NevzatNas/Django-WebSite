@@ -1,0 +1,68 @@
+{% extends 'homebase.html' %}
+
+{% block title %} {{ setting.title }} {% endblock %}
+{% block description %} {{ setting.description }} {% endblock %}
+{% block keywords %} {{ setting.keywords }} {% endblock %}
+{%block head %}
+<link rel="shortcut icon" type="image/icon" href="{{setting.icon.url}}"/> 
+{%endblock%}
+
+{% block body %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<!-- section -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="billing-details">
+
+                    <div class="section-title">
+                        <h3 class="title">Login Page </h3>
+                        <br>
+                
+                    </div>
+
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{message.tags}}" role="alert">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+
+                    <form action="" method="post">
+                        {% csrf_token %}
+                       <div class="form-group">
+                            <input class="input" type="text" name="username" placeholder="User Name">
+                        </div>
+                        <div class="form-group">
+                            <input class="input" type="password" name="password" placeholder="Password">
+                        </div>
+                        <input type="submit" value="Login">
+                        <a href="/signup" class="text-uppercase">Sign Up</a>
+
+                        
+                    </form>
+                    
+
+                </div>
+            </div>
+
+
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /section -->
+
+ {% endblock %}

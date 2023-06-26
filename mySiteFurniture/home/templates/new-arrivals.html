@@ -1,0 +1,56 @@
+{% extends "homebase.html" %}
+{% load static %}
+
+{% block title %}{{ setting.title }}{% endblock %}
+
+{%block head %}
+<link rel="shortcut icon" type="image/icon" href="{{setting.icon.url}}"/> 
+{%endblock%}
+
+{% block body %}
+<br>
+<br>
+<br>
+
+<!--new-arrivals start -->
+<section id="new-arrivals" class="new-arrivals">
+    <div class="container">
+        <div class="section-header">
+            <h2>new arrivals</h2>
+        </div><!--/.section-header-->
+        <div class="new-arrivals-content">
+            <div class="row">
+               {% for rs in products %}
+               <div class="col-md-3 col-sm-4">
+                <div class="single-new-arrival">
+                    <div class="single-new-arrival-bg">
+                        <img src="{{rs.image.url}}" alt="new-arrivals images">
+                        <div class="single-new-arrival-bg-overlay"></div>
+                        <div class="sale bg-1">
+                            <p>sale</p>
+                        </div>
+                        <div class="new-arrival-cart">
+                            <p>
+                                <span class="lnr lnr-cart"></span>
+                                <a href="/order/addtocart/{{rs.id}}">add <span>to </span> cart</a>
+                            </p>
+
+                        </div>
+                    </div>
+                    <h4><a href="/product/{{rs.id}}/{{rs.slug}}">{{rs.title}}</a></h4>
+                    <p class="arrival-product-price">${{rs.price}}</p>
+                </div>
+            </div>
+            {% endfor %}
+
+             
+                
+            </div>
+    </div><!--/.container-->
+  
+</section><!--/.new-arrivals-->
+<!--new-arrivals end -->
+
+
+
+{% endblock  %}

@@ -1,0 +1,40 @@
+{% extends 'homebase.html' %}
+
+{% block title %} {{ setting.title }} {% endblock %}
+{% block description %} {{ setting.description }} {% endblock %}
+{% block keywords %} {{ setting.keywords }} {% endblock %}
+{%block head %}
+<link rel="shortcut icon" type="image/icon" href="{{setting.icon.url}}"/> 
+{%endblock%}
+
+{% block body %}
+<br>
+<br>
+<br>
+<br>
+
+<section id="newsletter"  class="newsletter">
+    <div class="container">
+        <div class="hm-footer-details">
+            <div class="row">
+                
+                <img src="{{blogs.image.url}}" alt="populer-products images">
+
+                    <div class="tab-pane fade active in" id="more-information">
+                        <br />
+                        <strong>{{ blogs.title |safe }}</strong>
+                        <p>
+                            {{ blogs.description }}
+                        </p>
+                    </div>
+                    
+
+                </div><!--/.col-->
+            </div><!--/.row-->
+        </div><!--/.hm-footer-details-->
+
+    </div><!--/.container-->
+
+</section><!--/newsletter-->	
+<!--newsletter end -->
+ {% endblock %}

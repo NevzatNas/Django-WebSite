@@ -1,0 +1,136 @@
+{% extends 'homebase.html' %}
+
+{% block title %} {{ product.title }} {% endblock %}
+{% block description %} {{ product.description }} {% endblock %}
+{% block keywords %} {{ product.keywords }} {% endblock %}
+{%block head %}
+<link rel="shortcut icon" type="image/icon" href="{{setting.icon.url}}"/> 
+{%endblock%}
+
+{% block body %} 
+{% load static %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+    <!-- product -->
+    <div class="product-content product-wrap clearfix product-deatil">
+        <div class="row">
+            <div class="col-md-5 col-sm-12 col-xs-12">
+                <div class="product-image">
+                    <div id="myCarousel-2" class="carousel slide">
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel-2" data-slide-to="0" class=""></li>
+                            <li data-target="#myCarousel-2" data-slide-to="1" class="active"></li>
+                            <li data-target="#myCarousel-2" data-slide-to="2" class=""></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <!-- Slide 1 -->
+                            <div class="item active">
+                                <img src="{{ product.image.url }}" class="img-responsive" alt="" />
+                            </div>
+                            <!-- Slide 2 -->
+                            <div class="item">
+                                <img src="{{ product.image.url }}" class="img-responsive" alt="" />
+                            </div>
+                            <!-- Slide 3 -->
+                            <div class="item">
+                                <img src="{{ product.image.url }}" class="img-responsive" alt="" />
+                            </div>
+                        </div>
+                        <a class="left carousel-control" href="#myCarousel-2" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span> </a>
+                        <a class="right carousel-control" href="#myCarousel-2" data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span> </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-md-offset-1 col-sm-12 col-xs-12">
+                <h2 class="name">
+                    {{ product.title |safe }}
+                    <br>
+                    <br>
+
+
+                </h2>
+                <hr />
+                <h3 class="price-container">
+                    ${{product.price}}
+                    <small>*includes tax</small>
+                </h3>
+                <div class="certified">
+                    <ul>
+                        <li>
+                            <a href="javascript:void(0);">Delivery time<span>7 Working Days</span></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">Certified<span>Quality Assured</span></a>
+                        </li>
+                    </ul>
+                </div>
+                <hr />
+                <div class="description description-tabs">
+                    <ul id="myTab" class="nav nav-pills">
+                        <li class="active"><a href="#more-information" data-toggle="tab" class="no-margin">Description </a></li>
+                        <li class=""><a href="#specifications" data-toggle="tab">Specifications</a></li>
+
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade active in" id="more-information">
+                            <br />
+                            <strong>{{ product.title |safe }}</strong>
+                            <p>
+                                {{ product.description }}
+                            </p>
+                        </div>
+                        <div class="tab-pane fade" id="specifications">
+                            <br />
+                            <dl class="">
+                                <dt>Gravina</dt>
+                                <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
+                                <dd>Donec id elit non mi porta gravida at eget metus.</dd>
+                                <dd>Eget lacinia odio sem nec elit.</dd>
+                                <br />
+
+                                <dt>Test lists</dt>
+                                <dd>A description list is perfect for defining terms.</dd>
+                                <br />
+
+                                <dt>Altra porta</dt>
+                                <dd>Vestibulum id ligula porta felis euismod semper</dd>
+                            </dl>
+                        </div>
+                        <div class="col-md-12">
+                                <div class="tab-content">
+                                    <div id="tab1" class="tab-pane fade in active">
+                                        <p>
+                                            {{ product.detail |safe }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <form action="/order/addtocart/{{ product.id }}" method="post"  >
+                        {% csrf_token %}
+                        <div class="qty-input">
+                            <span class="text-uppercase">Adet:</span>
+                            <input name="quantity" class="input" type="number" min="0" max="{{product.amount}}" value="1">           
+                        </div>
+                        <button type="submit" class="primary-btn add-to-cart"><i class="fa fa-shopping-cart" ></i>Add to cart</button>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end product -->
+</div>
+  {% endblock %}
